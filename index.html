@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <link href='style.css' rel="stylesheet">
-    <title>Atbash decipher</title>
+  <meta charset="UTF-8">
+  <link href='style.css' rel="stylesheet">
+  <title>Atbash decipher</title>
 </head>
 
 <body>
-    <label>enter your message: <input class="input" type="text"></label>
-    <button class="btn">translate</button>
+  <div class="container">
+   <div class="form">
+    <label for="text">
+     Enter your message:
+    </label>
+    <input class="input" type="text" id='text'>
+  </div>
+    <button class="btn">
+      translate
+    </button>
     <div class="text">
-    <p class="output"></p>
+      <p class="output"></p>
     </div>
     <script src="index.js"></script>
+  </div>
 </body>
+
 </html>

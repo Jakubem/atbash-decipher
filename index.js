@@ -9,7 +9,7 @@ var translatedLetters = ['Z', 'Y', 'X', 'W', 'V', 'U', 'T', 'S', 'R', 'Q', 'P', 
 
 document.body.addEventListener('keypress', function (ev) {
     if (ev.code === 'Enter') {
-        translate();
+        btn.click();
     }
 });
 
@@ -20,9 +20,52 @@ var translate = function () {
         var textIndex = text.charAt(i);
         var lettersIndex = letters.indexOf(textIndex);
         var translation = translatedLetters[lettersIndex];
+      if (typeof translation === 'undefined'){
+        return;
+      };
         output.textContent += translation;
     }
     input.value = '';
+};
+
+
+var translateWojt = function () {
+    output.textContent = '';
+    Array.from(input.value).forEach(function (char) {
+        var translatedChar = mathSolution(char);
+        
+        if (!translatedChar) {
+            output.textContent += char;
+        } else {
+            output.textContent += translatedChar;
+        }
+    });
+    input.value = '';
+};
+
+
+var mathSolution = function (letter) {
+    // y is the var we are looking for - translated one. Contains char number 
+    // x is char number of letter
+    // startNumber is the startting position - ex. 65 is a , 97 is A
+    // alphabetLength is alphabet lenght
+    var y = undefined;
+    var x = letter.charCodeAt(0);
+    var alphabetLength = 25;
+    var startNumber = 97;
+    
+    if (!/[A-Za-z]/.test(letter)) {
+        return undefined;
+    }
+    
+    if (letter == letter.toUpperCase()) {
+        startNumber = 65;
+    }
+    
+//    console.log(`x: ${x}, y: ${y}, alphabetLength: ${alphabetLength}, startNumber: ${startNumber}`);
+    y = x + alphabetLength - (x-startNumber) * 2; 
+    
+    return String.fromCharCode(y);
 };
 
 btn.addEventListener('click', translate);
