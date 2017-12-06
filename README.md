@@ -2,4 +2,4 @@
 
 simple atbash decipher
 
-Demo: http://atbash-decipher.jakubemfoto.pl
+Demo: [Atbash-decipher](http://atbash-decipher.jakubemfoto.pl).
