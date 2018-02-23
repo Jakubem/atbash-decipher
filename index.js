@@ -20,9 +20,9 @@ var translate = function () {
         var textIndex = text.charAt(i);
         var lettersIndex = letters.indexOf(textIndex);
         var translation = translatedLetters[lettersIndex];
-      if (typeof translation === 'undefined'){
-        return;
-      };
+        if (typeof translation === 'undefined'){
+            translation = '';
+        };
         output.textContent += translation;
     }
     input.value = '';
